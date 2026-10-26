@@ -1,0 +1,54 @@
+﻿name: Build launcher APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - 'launcher/**'
+      - '.github/workflows/build-apk.yml'
+  pull_request:
+    paths:
+      - 'launcher/**'
+
+defaults:
+  run:
+    # The launcher is its own Gradle project (launcher/settings.gradle, module :app).
+    working-directory: launcher
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
+          cache-dependency-path: |
+            launcher/*.gradle
+            launcher/app/*.gradle
+            launcher/gradle/wrapper/gradle-wrapper.properties
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build release APK
+        run: ./gradlew :app:assembleRelease --no-daemon --stacktrace
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tvhome-release-apk
+          path: launcher/app/build/outputs/apk/release/*.apk
+          if-no-files-found: error
+          retention-days: 30
