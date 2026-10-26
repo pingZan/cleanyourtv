@@ -9,6 +9,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,6 +46,7 @@ final class AppCustomizeDialog {
         if (base == null) base = currentLabel;
         edit.setText(base == null ? "" : base);
         Drawable ic = AppCustom.getIcon(activity, pkg);
+        boolean picked = ic != null;
         if (ic == null) {
             // Show what the tile looks like now, so the preview is not an empty box.
             try {
@@ -52,7 +54,7 @@ final class AppCustomizeDialog {
             } catch (Exception ignored) {
             }
         }
-        if (ic != null) preview.setImageDrawable(ic);
+        showPreview(preview, ic, picked);
 
         Holder.lastPkg = pkg;
         Holder.lastPreview = preview;
@@ -110,6 +112,27 @@ final class AppCustomizeDialog {
         edit.requestFocus();
     }
 
+    /**
+     * Shows the picture at the shape the tile will use: a 16:9 banner fills the card, a square picture is an
+     * icon. The box grows for a banner so a 320x180 pick no longer looks tiny in the dialog either.
+     */
+    private static void showPreview(ImageView preview, Drawable d, boolean picked) {
+        if (d == null) return;
+        float density = preview.getResources().getDisplayMetrics().density;
+        boolean banner = picked
+                && AppAdapter.isBannerShaped(d.getIntrinsicWidth(), d.getIntrinsicHeight());
+        int width = Math.round((banner ? 160 : 64) * density);
+        int height = Math.round((banner ? 90 : 64) * density);
+        ViewGroup.LayoutParams lp = preview.getLayoutParams();
+        if (lp.width != width || lp.height != height) {
+            lp.width = width;
+            lp.height = height;
+            preview.setLayoutParams(lp);
+        }
+        preview.setScaleType(banner ? ImageView.ScaleType.CENTER_CROP : ImageView.ScaleType.FIT_CENTER);
+        preview.setImageDrawable(d);
+    }
+
     /** The file manager returned an image: keep it for Save and show it in the preview. */
     static void onIconPicked(Activity activity, Uri uri) {
         if (uri == null) return;
@@ -120,7 +143,7 @@ final class AppCustomizeDialog {
         Holder.pendingUri = uri;
         if (Holder.lastPreview != null) {
             Drawable picked = AppCustom.drawableFromUri(activity, uri);
-            if (picked != null) Holder.lastPreview.setImageDrawable(picked);
+            showPreview(Holder.lastPreview, picked, true);
         }
         if (Holder.lastDialog != null && Holder.lastDialog.isShowing()) {
             Toast.makeText(activity, R.string.customize_icon_picked, Toast.LENGTH_SHORT).show();

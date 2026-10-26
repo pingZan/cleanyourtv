@@ -2,15 +2,20 @@
 
 ## What was built
 
-`build-output/tvhome-3.1-custom-release.apk`
+`build-output/tvhome-3.1.1-custom-release.apk`
 
-- package `com.gathin.tvhome`, versionName 3.1, versionCode 10, minSdk 26, targetSdk 34
+- package `com.gathin.tvhome`, versionName 3.1.1, versionCode 11, minSdk 26, targetSdk 34
 - release build, R8 minified + resource shrunk, **signed with the Android debug key**
   (SHA-256 `048d26e2d2ae3ea656e10d797dcdfddaa97fce48042b7d9ebf06346163013417`)
-- SHA-256 of the APK file: `36B5C63242A312F5E74E36CD898241AF8F1CD82603BF79921C7A64CEBAAC3396`
-- 3.0 (`tvhome-3.0-custom-release.apk`, versionCode 9, SHA-256
-  `93A7EEFDB9A85DEA42BB0FCAA94CC4A5C6FA39BD1D537E6FC6087448ED6F7548`) is the
-  previous build; both share the same signing key, so `install -r` upgrades in place.
+- SHA-256 of the APK file: `6BCD7591F3CEACED163DA11B747EF2003DAC4B50D62654B72E363BBB29BEFA8A`
+- 3.1.1 fixes custom pictures: a banner-shaped pick (320x180) now fills the whole tile as
+  its banner, while a square pick (512x512) stays a centred icon; the Sesuaikan preview
+  uses the same 16:9 shape.
+- 3.1 (`tvhome-3.1-custom-release.apk`, versionCode 10, SHA-256
+  `36B5C63242A312F5E74E36CD898241AF8F1CD82603BF79921C7A64CEBAAC3396`) and 3.0
+  (`tvhome-3.0-custom-release.apk`, versionCode 9, SHA-256
+  `93A7EEFDB9A85DEA42BB0FCAA94CC4A5C6FA39BD1D537E6FC6087448ED6F7548`) are the
+  earlier builds; all share the same signing key, so `install -r` upgrades in place.
 
 ## Local build (what was used here)
 
@@ -45,7 +50,7 @@ $adb = "C:\platform-tools\adb.exe"
 Try an in-place update first:
 
 ```powershell
-& $adb install -r "C:\Users\0_0\Documents\project1\cleanyourtv-main\build-output\tvhome-3.1-custom-release.apk"
+& $adb install -r "C:\Users\0_0\Documents\project1\cleanyourtv-main\build-output\tvhome-3.1.1-custom-release.apk"
 ```
 
 If that fails with `INSTALL_FAILED_UPDATE_INCOMPATIBLE` (the installed copy was signed
@@ -54,7 +59,7 @@ settings, tile order and per-app customizations**:
 
 ```powershell
 & $adb uninstall com.gathin.tvhome
-& $adb install "C:\Users\0_0\Documents\project1\cleanyourtv-main\build-output\tvhome-3.1-custom-release.apk"
+& $adb install "C:\Users\0_0\Documents\project1\cleanyourtv-main\build-output\tvhome-3.1.1-custom-release.apk"
 & $adb shell cmd package set-home-activity com.gathin.tvhome/.MainActivity
 ```
 
@@ -72,9 +77,9 @@ restored with:
 
 ## Features in this build
 
-1. Long-press a tile (dock or drawer) → **Sesuaikan**: rename the tile and pick an icon
-   from a file manager (PNG/JPG/WebP; 320x180 banner or 512x512 square recommended).
-   Reset returns the app's own label and icon.
+1. Long-press a tile (dock or drawer) → **Sesuaikan**: rename the tile and pick a banner or
+   icon from a file manager (PNG/JPG/WebP; a 320x180 banner fills the tile, a 512x512
+   picture becomes an icon). Reset returns the app's own label and icon.
 2. **Launcher settings** → separate `Jumlah kolom Dock` and `Jumlah kolom Drawer` (3–6).
    Tiles and icons scale with the column count.
 3. Long-press a tile → **Geser** to pick the tile up and move it with the arrows.

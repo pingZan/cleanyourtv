@@ -302,10 +302,12 @@ public class AppAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             String label = card != null ? card.label : (customLabel != null ? customLabel : Cards.cleanLabel(
                     appLabels.containsKey(pkg) ? appLabels.get(pkg) : String.valueOf(ri.loadLabel(pm)), pkg));
             if (!seen.add(pkg + '\n' + label)) continue;
-            Drawable banner = null;
-            // A custom icon replaces the app's own artwork, so it is drawn as an icon tile even when the app
-            // declares a banner (config: the owner picked it under Sesuaikan).
+            // A custom picture picked under Sesuaikan replaces the app's own artwork. A banner-shaped one
+            // (320x180) is drawn like a banner and fills the whole tile; a square one stays a centred icon.
             Drawable customIcon = AppCustom.getIcon(ctx, pkg);
+            boolean customBanner = customIcon != null
+                    && isBannerShaped(customIcon.getIntrinsicWidth(), customIcon.getIntrinsicHeight());
+            Drawable banner = customBanner ? customIcon : null;
             // uniform_tiles draws the icon, so an app's banner is never loaded. A module card keeps its banner.
             if (customIcon == null && !(uniformTiles && card == null)) {
                 banner = bundledBanner(appBanners.get(pkg));
@@ -313,7 +315,9 @@ public class AppAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             }
             // The icon is only drawn (and sampled for the glow) when there is no banner, so a tile with a
             // banner skips loading and decoding it.
-            Drawable icon = customIcon != null ? customIcon : (banner == null ? ri.loadIcon(pm) : null);
+            Drawable icon = customIcon != null
+                    ? (customBanner ? null : customIcon)
+                    : (banner == null ? ri.loadIcon(pm) : null);
             if (card != null) {
                 fresh.add(new Entry(Entry.CARD, label, component, banner, icon, card.caption, card.accent));
             } else {
