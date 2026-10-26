@@ -57,7 +57,9 @@ A new key needs one there in the same pull request.
 | `input_action` | string | Action sent with an HDMI/AV row's channel URI when nothing handles the standard `VIEW` (XGIMI: `com.xgimi.action.hdmiPlayer`). Only a handler-less set gets here; any app that claims the channel MIME type takes the row instead, so check with `query-activities` ([#805](https://github.com/Gathin23/cleanyourtv/issues/805)) |
 | `input_uri_scheme` | string | Scheme an HDMI/AV row's passthrough URI is sent with instead of `content://`, with no MIME type (YaOS: `live-tv`, which its source player answers) |
 | `input_sources` | list | Vendor source numbers for the Inputs menu, `HW<n>=<number>` by the input id's last part; a mapped input opens by sending `input_action` with the number as the int extra `input`, and `HW<n>=-` leaves a port the set doesn't have out of the menu. Xiaomi/Redmi China firmware: [redmi-mitv-mftp0](../examples/redmi-mitv-mftp0/) |
-| `columns` | 1 to 8 | Tiles per row; tiles shrink to fit from 5 up |
+| `columns` | 1 to 8 | Tiles per row; tiles shrink to fit from 5 up. The dock and drawer column counts follow it until `dock_columns` or `grid_columns` is set |
+| `dock_columns` | 3 to 6 | Slots in the dock; `0` follows `columns`, so a theme that only sets `columns` still works |
+| `grid_columns` | 3 to 6 | Tiles per row in the drawer below the dock; `0` follows `columns`, so a theme that only sets `columns` still works |
 | `rows_below_dock` | 0 to 3 | Grid rows left visible under the dock; tiles shrink if the dock, its title and that many rows would not fit the screen height |
 | `dock_title` | bool | The focused dock app's name in large type above the dock (`true`); `false` keeps only the glow |
 | `dock_row` | bool | The dock as its own row with a band (`true`); `false` makes the dock apps the first tiles of one plain grid |

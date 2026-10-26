@@ -625,9 +625,11 @@ and a wallpaper.
   (a launcher may not restart the TV itself). The launcher's own page has these rows, top to bottom:
   - **Reorder apps**, only with `launcher_settings_button`: OK picks an app up, the arrows move it, Back
     places it, and Back again finishes.
-  - **Apps per row** 4, 5, 6 or 7; **Rows below dock** 0 to 3, how many rows of tiles stay visible under the
-    dock band; **Dock band opacity** 100%, 70%, 50% or 30%. The last two only do anything while the dock is
-    its own row (`dock_row`, on by default).
+  - **Apps per row** 4, 5, 6 or 7, the old single count kept for themes and hidden on screen; **Dock columns**
+    3, 4, 5 or 6 and **Drawer columns** 3, 4, 5 or 6 set the dock's slots and the tiles per row below it, which
+    can differ; **Rows below dock** 0 to 3, how many rows of tiles stay visible under the dock band; **Dock band
+    opacity** 100%, 70%, 50% or 30%, shown only while the dock's band is not glass (`dock_glass`). Rows below
+    dock and the opacity only do anything while the dock is its own row (`dock_row`, on by default).
   - **Wallpaper**: one picture from the theme's collection (or its `wallpaper.jpg`), **None**, or **Theme
     default**. A pick holds that picture and stops the rotation until you choose Theme default, press
     Follow theme, or push the theme again.
