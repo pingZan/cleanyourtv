@@ -270,9 +270,9 @@
          Off by default; a theme can set "launcher_settings_button": true. -->
     <bool name="launcher_settings_button">false</bool>
     <!-- The dock band as light frosted glass, like the Inputs, Wi-Fi and Settings pills, so a sky or wallpaper shows
-         through it. false (the default) keeps the solid near-black band, or the cinematic shelf's dark glass. Can
-         also be set with "dock_glass": true in a theme's config.json. -->
-    <bool name="dock_glass">false</bool>
+         through it. false keeps the solid near-black band, or the cinematic shelf's dark glass. This build turns it
+         on. Can also be set with "dock_glass" in a theme's config.json. -->
+    <bool name="dock_glass">true</bool>
     <!-- Draw the dock band and its edge. false leaves the tiles floating on the wallpaper (config.xml dock_band). -->
     <bool name="dock_band">true</bool>
     <!-- Every app in one row: the dock apps first, the rest after them, and the row scrolls sideways when focus
@@ -370,8 +370,11 @@
          Off by default because the chooser is also available from launcher settings. -->
     <bool name="show_home_settings_shortcut">false</bool>
 
-    <!-- Installed launchable apps, including ordinary Android apps. Also settable in config.json. -->
-    <bool name="app_library">false</bool>
+    <!-- Installed launchable apps, including ordinary Android apps, and the App library pill after the last Home
+         row: any app can be put on Home, and a Home tile's hold-OK menu gets "Remove from Home" so it can be hidden
+         from Home again (it stays reachable in the library). A removal without the library would have no way back,
+         so this build turns the library on and keeps that row. Also settable in config.json. -->
+    <bool name="app_library">true</bool>
     <!-- Every app tile is its icon on a card tinted from that icon, name only under the focused tile,
          instead of each app's own banner. Off by default; a theme can set "uniform_tiles": true. -->
     <bool name="uniform_tiles">false</bool>

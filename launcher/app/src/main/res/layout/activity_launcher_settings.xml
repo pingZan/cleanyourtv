@@ -121,6 +121,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/dockOpacityTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
@@ -129,6 +130,7 @@
             android:textSize="20sp" />
 
         <LinearLayout
+            android:id="@+id/dockOpacityChoices"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

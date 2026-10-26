@@ -67,6 +67,13 @@ public final class LauncherSettingsActivity extends Activity {
         animations = config.animations;
         advancedEffects = config.animations && config.advancedEffects;
 
+        // The glass dock (dock_glass) draws its own white tint, so the plain band's opacity would be a dead
+        // control here: hide that row instead of leaving a setting that changes nothing.
+        if (config.dockGlass) {
+            findViewById(R.id.dockOpacityTitle).setVisibility(View.GONE);
+            findViewById(R.id.dockOpacityChoices).setVisibility(View.GONE);
+        }
+
         int[] ids = {R.id.columns4, R.id.columns5, R.id.columns6, R.id.columns7};
         for (int i = 0; i < ids.length; i++) {
             final int value = i + 4;
