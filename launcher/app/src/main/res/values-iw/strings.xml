@@ -151,7 +151,7 @@
     <string name="customize_title">התאמת אפליקציה</string>
     <string name="customize_label">שם / תווית</string>
     <string name="customize_icon">באנר או סמל האפליקציה</string>
-    <string name="customize_pick_icon">בחירת באנר או סמל ממנהל קבצים</string>
+    <string name="customize_pick_icon">בחירת באנר או סמל</string>
     <string name="customize_icon_hint">מומלץ: PNG/JPG/WebP • באנר 320x180 ממלא את האריח, תמונה 512x512 הופכת לסמל</string>
     <string name="customize_reset">איפוס לברירת מחדל</string>
     <string name="save">שמירה</string>

@@ -1,0 +1,8 @@
+com.gathin.keyremap-pngs-0 C:\Users\0_0\Documents\project1\cleanyourtv-main\keyremap\build\generated\res\pngs\release
+com.gathin.keyremap-resValues-1 C:\Users\0_0\Documents\project1\cleanyourtv-main\keyremap\build\generated\res\resValues\release
+com.gathin.keyremap-packageReleaseResources-2 C:\Users\0_0\Documents\project1\cleanyourtv-main\keyremap\build\intermediates\incremental\release\packageReleaseResources\merged.dir
+com.gathin.keyremap-packageReleaseResources-3 C:\Users\0_0\Documents\project1\cleanyourtv-main\keyremap\build\intermediates\incremental\release\packageReleaseResources\stripped.dir
+com.gathin.keyremap-merged-not-compiled-resources-4 C:\Users\0_0\Documents\project1\cleanyourtv-main\keyremap\build\intermediates\merged-not-compiled-resources\release
+com.gathin.keyremap-release-5 C:\Users\0_0\Documents\project1\cleanyourtv-main\keyremap\build\intermediates\merged_res\release\mergeReleaseResources
+com.gathin.keyremap-main-6 C:\Users\0_0\Documents\project1\cleanyourtv-main\keyremap\src\main\res
+com.gathin.keyremap-release-7 C:\Users\0_0\Documents\project1\cleanyourtv-main\keyremap\src\release\res

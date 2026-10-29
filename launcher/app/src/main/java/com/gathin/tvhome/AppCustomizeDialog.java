@@ -31,7 +31,7 @@ final class AppCustomizeDialog {
         Window w = dialog.getWindow();
         if (w != null) {
             w.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-            w.setLayout((int) (460 * activity.getResources().getDisplayMetrics().density),
+            w.setLayout((int) (480 * activity.getResources().getDisplayMetrics().density),
                     android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
         }
 

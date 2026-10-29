@@ -95,7 +95,7 @@
     <string name="customize_title">Sesuaikan aplikasi</string>
     <string name="customize_label">Nama / Label</string>
     <string name="customize_icon">Banner atau ikon aplikasi</string>
-    <string name="customize_pick_icon">Pilih banner atau ikon dari file manager</string>
+    <string name="customize_pick_icon">Pilih banner atau ikon</string>
     <string name="customize_icon_hint">Disarankan: PNG/JPG/WebP • Banner 320x180 memenuhi tile, gambar 512x512 menjadi ikon</string>
     <string name="customize_reset">Reset ke bawaan</string>
     <string name="save">Simpan</string>

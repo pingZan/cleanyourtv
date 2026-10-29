@@ -111,7 +111,7 @@
     <string name="customize_title">Customize app</string>
     <string name="customize_label">Name / Label</string>
     <string name="customize_icon">Banner or app icon</string>
-    <string name="customize_pick_icon">Pick a banner or icon from a file manager</string>
+    <string name="customize_pick_icon">Pick a banner or icon</string>
     <string name="customize_icon_hint">Recommended: PNG/JPG/WebP • a 320x180 banner fills the tile, a 512x512 picture becomes an icon</string>
     <string name="customize_reset">Reset to default</string>
     <string name="save">Save</string>
