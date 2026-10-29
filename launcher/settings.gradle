@@ -14,5 +14,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "tvhome"
 include ':app'
-include ':keyremap'
-project(':keyremap').projectDir = new File(rootDir, '../keyremap')
