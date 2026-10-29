@@ -1,7 +1,0 @@
-com.gathin.keyremap-pngs-0 C:\Users\0_0\Documents\project1\cleanyourtv-main\keyremap\build\generated\res\pngs\debug
-com.gathin.keyremap-resValues-1 C:\Users\0_0\Documents\project1\cleanyourtv-main\keyremap\build\generated\res\resValues\debug
-com.gathin.keyremap-packageDebugResources-2 C:\Users\0_0\Documents\project1\cleanyourtv-main\keyremap\build\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.gathin.keyremap-packageDebugResources-3 C:\Users\0_0\Documents\project1\cleanyourtv-main\keyremap\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.gathin.keyremap-debug-4 C:\Users\0_0\Documents\project1\cleanyourtv-main\keyremap\build\intermediates\merged_res\debug\mergeDebugResources
-com.gathin.keyremap-debug-5 C:\Users\0_0\Documents\project1\cleanyourtv-main\keyremap\src\debug\res
-com.gathin.keyremap-main-6 C:\Users\0_0\Documents\project1\cleanyourtv-main\keyremap\src\main\res

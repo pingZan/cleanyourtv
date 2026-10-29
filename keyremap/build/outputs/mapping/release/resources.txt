@@ -1,9 +1,0 @@
-@string/app_name : reachable=false
-@xml/accessibility_service_config : reachable=true
-    @string/app_name
-
-The root reachable resources are:
- xml:accessibility_service_config:2130837504
-Unused resources are: 
-
-Resource shrinking did not work (grew from 1674 to 1730); using original instead

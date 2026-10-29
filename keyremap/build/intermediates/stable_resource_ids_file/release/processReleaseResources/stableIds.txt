@@ -1,2 +1,0 @@
-com.gathin.keyremap:xml/accessibility_service_config = 0x7f020000
-com.gathin.keyremap:string/app_name = 0x7f010000

@@ -1,9 +1,0 @@
-# compiler: R8
-# compiler_version: 8.5.35
-# min_api: 21
-# common_typos_disable
-# {"id":"com.android.tools.r8.mapping","version":"2.2"}
-# pg_map_id: d672225
-# pg_map_hash: SHA-256 d672225069b2315d5b3169f45e0024a723316ea639a98032747dfd1e397cfb3c
-com.gathin.keyremap.KeyRemapService -> com.gathin.keyremap.KeyRemapService:
-# {"id":"sourceFile","fileName":"KeyRemapService.java"}
